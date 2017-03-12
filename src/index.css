@@ -1,7 +1,6 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
   background-color: #FAF3FE;
 }
 
@@ -10,3 +9,26 @@ body {
     bottom: 0;
     width: 100%;
   }
+
+#alias {
+  color: #5E1785;
+}
+
+#name-title {
+  color: #025634;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 0px;
+}
+
+.ui.link.card.skillbox {
+  border-radius: 30px;
+}
+
+.ui.header {
+  padding: 5px;
+}
+
+.ui.cards .skillbox {
+  padding-top: 8px;
+}

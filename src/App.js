@@ -44,25 +44,26 @@ class App extends Component {
     return (
       <div className="App">
           <Container fluid>
-            <Header dividing>
+            <Header>
               <Header.Content as='h1'>
                 <Icon name='plug' fitted></Icon>
-                Syed A Jafri
+                <a id='name-title'>Syed A Jafri</a>
+                <Header.Subheader id='alias'>
+                  @psilospore
+                </Header.Subheader>
               </Header.Content>
-              <Header.Subheader>
-                @psilospore
-              </Header.Subheader>
+
               <Icon link circular name='github'></Icon>
               <Icon link circular name='stack overflow'></Icon>
               <Icon link circular name='linkedin'></Icon>
               <Icon link circular name='twitter'></Icon>
             </Header>
             <Container fluid >
-              <Header as='h3'>Languages</Header>
+              <Header as='h3' dividing>Languages</Header>
               <Card.Group>
                 <SkillBox
                   skillTitle='Javascript'
-                  jobs={['Alertus', 'ITG', 'psilospore.me']}
+                  jobs={['Alertus', 'Jibe', 'ITG', 'psilospore.me']}
                   description='ssdgdgs adsgdgasf afsafs asf  as fasfasfafs asfasfassaas afas asfa ssfas as asfasfasasf  asfasfasafs asffassaf asffasf'
                 ></SkillBox>
                 <SkillBox
@@ -85,7 +86,7 @@ class App extends Component {
             </Container>
             <pre></pre>
             <Container fluid >
-              <Header as='h3'>Tools, Libraries, and Frameworks</Header>
+              <Header as='h3' dividing>Tools, Libraries, and Frameworks</Header>
               <Card.Group>              
                 <SkillBox
                   skillTitle='React JS'
@@ -99,7 +100,7 @@ class App extends Component {
                 </Card.Group>
             </Container>
           </Container>
-          <Segment inverted fluid vertical className='footer'>
+          <Segment inverted vertical className='footer'>
             <Header.Subheader as='h4' >
               Built with React JS + semantic ui
             </Header.Subheader>

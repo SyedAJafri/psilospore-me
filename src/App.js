@@ -6,6 +6,7 @@ import './App.css';
 
 import { Container, GridColumn, Grid, GridRow, Segment, Item, ItemHeader, Image, Header, Icon, Card, Dimmer, DimmerDimmable } from 'semantic-ui-react';
 
+
 class SkillBox extends Component {
 
   constructor(props){
@@ -43,6 +44,10 @@ class SkillBox extends Component {
 const Footer = (props) => {
   return (
       <Segment inverted vertical className='footer'>
+        <Segment basic>
+          <a style={{paddingRight:'5px', color: 'white'}}>Arrow left or right</a>
+          <Icon inverted size='large' name='toggle right'></Icon>
+        </Segment>
         <Icon link circular name='github'></Icon>
         <Icon link circular name='stack overflow'></Icon>
         <Icon link circular name='linkedin'></Icon>
@@ -58,15 +63,19 @@ const Footer = (props) => {
 class IntroPage extends Component {
   render() {
     return (
-      <Header>
-        <Header.Content as='h1'>
-          <Icon name='plug' fitted></Icon>
-          <a id='name-title'>Syed A Jafri</a>
-          <Header.Subheader id='alias'>
-            @psilospore
-          </Header.Subheader>
-        </Header.Content>
-      </Header>
+      <Container>
+        <Header>
+          <Header.Content as='h1'>
+            <Icon name='plug' fitted></Icon>
+            <a id='name-title'>Syed A Jafri</a>
+            <Header.Subheader id='alias'>
+              @psilospore
+            </Header.Subheader>
+          </Header.Content>
+        </Header>
+
+      </Container>
+
     )
   }
 }
@@ -131,6 +140,20 @@ class ToolsLibrariesPage extends Component {
   }
 }
 
+function LoadingIcons(props) {
+  let loadingIcons = [];
+  for (let i = 0; i <= props.NUMBER_OF_PAGES; i++) {
+    if (i === props.pageNum) {
+      loadingIcons.push(<Icon key={i} name='thin circle' ></Icon>);
+    } else {
+      loadingIcons.push(<Icon key={i} name='circle' ></Icon>);
+    }
+  }
+  return (
+    <div>{loadingIcons}</div>
+  );
+}
+
 class App extends Component {
 
   NUMBER_OF_PAGES = 2;
@@ -151,7 +174,6 @@ class App extends Component {
   }
 
   handleKeyDown = (event) => {
-    debugger;
     if (event.key === 'ArrowLeft') {
       if (this.state.pageNum > 0) {
         this.setState({pageNum: this.state.pageNum - 1});
@@ -187,9 +209,14 @@ class App extends Component {
     return (
       <div className="App" onKeyDown={this.handleKeyPress}>
         {page}
+        <LoadingIcons
+          pageNum={this.state.pageNum}
+          NUMBER_OF_PAGES={this.NUMBER_OF_PAGES}
+        ></LoadingIcons>
         <Footer></Footer>
       </div>
     );
+
   }
 }
 

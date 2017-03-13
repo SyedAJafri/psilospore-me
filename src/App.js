@@ -44,10 +44,12 @@ class SkillBox extends Component {
 const Footer = (props) => {
   return (
       <Segment inverted vertical className='footer'>
-        <Segment basic>
+        { props.showHelper &&
+          <Segment basic>
           <a style={{paddingRight:'5px', color: 'white'}}>Arrow left or right</a>
           <Icon inverted size='large' name='toggle right'></Icon>
         </Segment>
+        }
         <Icon link circular name='github'></Icon>
         <Icon link circular name='stack overflow'></Icon>
         <Icon link circular name='linkedin'></Icon>
@@ -162,6 +164,7 @@ class App extends Component {
     super(props);
     this.state = {
       pageNum: 0,
+      firstTime: true
     };
   };
 
@@ -177,12 +180,14 @@ class App extends Component {
     if (event.key === 'ArrowLeft') {
       if (this.state.pageNum > 0) {
         this.setState({pageNum: this.state.pageNum - 1});
+        this.setState({firstTime: false});
       } else {
         //TODO wiggle animation
       }
     } else if (event.key === 'ArrowRight') {
       if (this.state.pageNum < this.NUMBER_OF_PAGES) {
         this.setState({pageNum: this.state.pageNum + 1});
+        this.setState({firstTime: false});        
       } else {
         //TODO wiggle animation
       }
@@ -208,12 +213,14 @@ class App extends Component {
 
     return (
       <div className="App" onKeyDown={this.handleKeyPress}>
-        {page}
         <LoadingIcons
           pageNum={this.state.pageNum}
           NUMBER_OF_PAGES={this.NUMBER_OF_PAGES}
         ></LoadingIcons>
-        <Footer></Footer>
+        {page}
+        <Footer
+          showHelper={this.state.firstTime}
+        ></Footer>
       </div>
     );
 

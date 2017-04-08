@@ -169,14 +169,17 @@ class App extends Component {
   };
 
   componentWillMount() {
-    document.addEventListener("keydown", this.handleKeyDown.bind(this));
+    document.addEventListener("keydown", this.handleKeyDownTouchMove.bind(this));
+    document.addEventListener('touchmove', this.handleKeyDownTouchMove.bind(this));
   }
 
   componentWillUnmount(){
-    document.removeEventListener("keydown", this.handleKeyDown.bind(this))
+    document.removeEventListener("keydown", this.handleKeyDownTouchMove.bind(this))
+    document.removeEventListener('touchmove', this.handleKeyDownTouchMove.bind(this));    
   }
 
-  handleKeyDown = (event) => {
+  handleKeyDownTouchMove = (event) => {
+    console.log(event);
     if (event.key === 'ArrowLeft') {
       if (this.state.pageNum > 0) {
         this.setState({pageNum: this.state.pageNum - 1});
@@ -193,9 +196,7 @@ class App extends Component {
       }
     }
   }
-
   
-
   render() {
 
     let page;
@@ -212,7 +213,7 @@ class App extends Component {
     }
 
     return (
-      <div className="App" onKeyDown={this.handleKeyPress}>
+      <div className="App">
         <LoadingIcons
           pageNum={this.state.pageNum}
           NUMBER_OF_PAGES={this.NUMBER_OF_PAGES}

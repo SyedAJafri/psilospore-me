@@ -2,43 +2,61 @@ import React, { Component } from 'react';
 import reactLogo from './logo.svg';
 import '../semantic/dist/semantic.min.css';
 
-import './App.css';
+import './css/App.css';
 
 import { Container, GridColumn, Grid, GridRow, Segment, Item, ItemHeader, Image, Header, Icon, Card, Dimmer, DimmerDimmable } from 'semantic-ui-react';
 
+ const JOBS = [
+      {
+        title: 'React'
+      },
+      {
+        title: 'Javascript'
+      },
+      {
+        title: 'Java'
+      },
+      {
+        title: 'Ruby'
+      },
+      {
+        title: 'OCaml'
+      },
+      {
+        title: 'Hibernate'
+      },
+      {
+        title: 'Typescript'
+      },
+      {
+        title: 'Typescript'
+      },
+      {
+        title: 'Typescript'
+      },
+    ];
 
-class SkillBox extends Component {
-
-  constructor(props){
+class SkillBox extends React.Component {
+  constructor(props) {
     super(props);
-    this.state = {active: false};
   }
-  
   render() {
-
-    let additionalDescription = [];
-    if (this.props.jobs) {
-      additionalDescription.push(<Item.Meta key={this.props.id + "_where"}> <b>Where</b> {this.props.jobs.toString().replace(/,/g, ', ') } </Item.Meta>);
+    let skillBoxClasses = 'skillbox';
+    if (this.props.active) {
+      skillBoxClasses+= ' transition-skillbox-info';
     }
-    if (this.props.description) {
-      additionalDescription.push(<Item.Description key={this.props.id + "_description"}> {this.props.description} </Item.Description>);
-    }
-
-    // TODO onclick expand to include more like where and description
     return (
-      <Card raised link className="skillbox" onClick={() => this.setState({active: !this.state.active})}>
-        <Item.Group>
-          <Item>
-            { this.props.logo && <Item.Image size='tiny' src={this.props.logo} ></Item.Image> }
-            <Item.Content>
-              <ItemHeader>{this.props.skillTitle}</ItemHeader>
-              {additionalDescription}
-            </Item.Content>
-          </Item>
-        </Item.Group>
-      </Card>
+      <div className={skillBoxClasses} key={this.props.key} onClick={this.props.onClick}>
+        <div className='circle'></div>
+        <a className='title'>{this.props.title}</a>
+        <SkillInfo
+          location='ITG'
+          description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+          />
+      </div>
     )
   }
+
 }
 
 const Footer = (props) => {
@@ -62,86 +80,7 @@ const Footer = (props) => {
     )
 }
 
-class IntroPage extends Component {
-  render() {
-    return (
-      <Container>
-        <Header>
-          <Header.Content as='h1'>
-            <Icon name='plug' fitted></Icon>
-            <a id='name-title'>Syed A Jafri</a>
-            <Header.Subheader id='alias'>
-              @psilospore
-            </Header.Subheader>
-          </Header.Content>
-        </Header>
-
-      </Container>
-
-    )
-  }
-}
-
-class LanguagesPage extends Component {
-  //TODO merge with ToolsLibrariesPage once skills externalized
-  render() {
-    return (
-      <Container fluid >
-        <Header as='h1' dividing>Languages</Header>
-        <Card.Group>
-          <SkillBox
-            id={0}          
-            skillTitle='Javascript'
-            jobs={['Alertus', 'Jibe', 'ITG', 'psilospore.me']}
-            description='ssdgdgs adsgdgasf afsafs asf  as fasfasfafs asfasfassaas afas asfa ssfas as asfasfasasf  asfasfasafs asffassaf asffasf'
-          ></SkillBox>
-          <SkillBox
-            id={1}
-            skillTitle='Java'
-            jobs={['UMD', 'Alertus', 'ITG']}
-          ></SkillBox>
-          <SkillBox
-            id={2}          
-            skillTitle='Java'
-            jobs={['UMD', 'Alertus', 'ITG']}
-          ></SkillBox>
-          <SkillBox
-            id={3}                    
-            skillTitle='Java'
-            jobs={['UMD', 'Alertus', 'ITG']}
-          ></SkillBox>
-          <SkillBox
-            id={4}          
-            skillTitle='Java'
-            jobs={['UMD', 'Alertus', 'ITG']}
-          ></SkillBox>
-        </Card.Group>
-      </Container>
-    )
-  }
-}
-
-class ToolsLibrariesPage extends Component {
-  render() {
-    return (
-      <Container fluid >
-        <Header as='h1' dividing>Tools, Libraries, and Frameworks</Header>
-        <Card.Group>              
-          <SkillBox
-            skillTitle='React JS'
-            logo={reactLogo}
-            jobs={['psilospore.me']}
-          ></SkillBox>
-          <SkillBox
-            skillTitle='Spring Framework'
-            jobs={['ITG']}
-          ></SkillBox>
-          </Card.Group>
-      </Container>
-    )
-  }
-}
-
+// Rename
 function LoadingIcons(props) {
   let loadingIcons = [];
   for (let i = 0; i <= props.NUMBER_OF_PAGES; i++) {
@@ -164,19 +103,17 @@ class App extends Component {
     super(props);
     this.state = {
       pageNum: 0,
-      firstTime: true
+      active: 0
     };
   };
 
-  componentWillMount() {
-    document.addEventListener("keydown", this.handleKeyDownTouchMove.bind(this));
-    document.addEventListener('touchmove', this.handleKeyDownTouchMove.bind(this));
+  skillBoxClicked(index) {
+    return (evt) => {
+      this.setState({active: index});
+      evt.stopPropagation();
+    };
   }
-
-  componentWillUnmount(){
-    document.removeEventListener("keydown", this.handleKeyDownTouchMove.bind(this))
-    document.removeEventListener('touchmove', this.handleKeyDownTouchMove.bind(this));    
-  }
+  
 
   handleKeyDownTouchMove = (event) => {
     console.log(event);
@@ -198,6 +135,16 @@ class App extends Component {
   }
   
   render() {
+
+    let skills = JOBS.map((job, index) => {
+      return (
+        <SkillBox
+          onClick={this.skillBoxClicked(index)}
+          active={index === this.state.active}
+          {...job}
+        />
+      )
+    });
 
     let page;
     switch (this.state.pageNum) {

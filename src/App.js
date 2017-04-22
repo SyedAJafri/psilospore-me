@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import reactLogo from './logo.svg';
 import '../semantic/dist/semantic.min.css';
 
+import './css/Index.css';
 import './css/App.css';
+import './css/SkillBox.css';
 
 import { Container, GridColumn, Grid, GridRow, Segment, Item, ItemHeader, Image, Header, Icon, Card, Dimmer, DimmerDimmable } from 'semantic-ui-react';
 
@@ -36,27 +38,25 @@ import { Container, GridColumn, Grid, GridRow, Segment, Item, ItemHeader, Image,
       },
     ];
 
-class SkillBox extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+
+class IntroPage extends Component {
   render() {
-    let skillBoxClasses = 'skillbox';
-    if (this.props.active) {
-      skillBoxClasses+= ' transition-skillbox-info';
-    }
     return (
-      <div className={skillBoxClasses} key={this.props.key} onClick={this.props.onClick}>
-        <div className='circle'></div>
-        <a className='title'>{this.props.title}</a>
-        <SkillInfo
-          location='ITG'
-          description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-          />
-      </div>
+      <Container>
+        <Header>
+          <Header.Content as='h1'>
+            <Icon name='plug' fitted></Icon>
+            <a id='nametitle'>Syed A Jafri</a>
+            <Header.Subheader id='alias'>
+              @psilospore
+            </Header.Subheader>
+          </Header.Content>
+        </Header>
+
+      </Container>
+
     )
   }
-
 }
 
 const Footer = (props) => {
@@ -79,9 +79,38 @@ const Footer = (props) => {
       </Segment>
     )
 }
+class SkillBox extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    let skillBoxClasses = 'box skillbox';
+    if (this.props.active) {
+      skillBoxClasses += ' selected-skillbox';
+    }
+    return (
+      <div className={skillBoxClasses} key={this.props.key} onClick={this.props.onClick}>
+        <div className='circle'></div>
+        <a className='skill-title'>{this.props.title}</a>
+      </div>
+    )
+  }
+
+}
+
+const SkillInfo = (props) => {
+  return (
+    <div className='box skill-info'>
+      <a className='skill-title'>{props.title}</a>
+      <h3>Where {props.location}</h3>
+      <p>{props.description}</p>
+    </div>
+  )
+}
+
 
 // Rename
-function LoadingIcons(props) {
+function Navigation(props) {
   let loadingIcons = [];
   for (let i = 0; i <= props.NUMBER_OF_PAGES; i++) {
     if (i === props.pageNum) {
@@ -91,7 +120,7 @@ function LoadingIcons(props) {
     }
   }
   return (
-    <div>{loadingIcons}</div>
+    <div className='navigation'>{loadingIcons}</div>
   );
 }
 
@@ -102,7 +131,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pageNum: 0,
+      pageNum: 1,
       active: 0
     };
   };
@@ -146,25 +175,36 @@ class App extends Component {
       )
     });
 
+    let selectedSkill = JOBS[this.state.active];
+    let selectedSkillInfo = selectedSkill ?
+        <SkillInfo
+          {...selectedSkill}
+          location='ITG'
+          description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+          />: <div></div>;
+
     let page;
     switch (this.state.pageNum) {
       case 0:
         page = <IntroPage></IntroPage>;
         break;
       case 1:
-        page = <LanguagesPage></LanguagesPage>
-        break;
-      case 2:
-        page = <ToolsLibrariesPage></ToolsLibrariesPage>
+        page = <div>
+          <h1 className='page-title'>Skills</h1>
+          <div className='container'>
+            {selectedSkillInfo}
+            {skills}
+          </div>
+        </div>
         break;
     }
 
     return (
       <div className="App">
-        <LoadingIcons
+        <Navigation
           pageNum={this.state.pageNum}
           NUMBER_OF_PAGES={this.NUMBER_OF_PAGES}
-        ></LoadingIcons>
+        ></Navigation>
         {page}
         <Footer
           showHelper={this.state.firstTime}

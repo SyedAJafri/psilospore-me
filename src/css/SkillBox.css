@@ -56,29 +56,15 @@
   margin-bottom: 0.2em;
   padding: 1em;
   padding-top: 3em;  
-  -webkit-animation: slideLeft 200ms;
-          animation: slideLeft 200ms;
 }
 
-
-@-webkit-keyframes slideLeft {
-  0% {
-    left: 100%;
-  }
-  70% {
-    left: 50%;
-  }
-  100% {
-    left: 0%;
-  }
+.slide-left {
+  animation: slideLeft 100ms ease-in;    
 }
 
 @keyframes slideLeft {
   0% {
     left: 100%;
-  }
-  70% {
-    left: 50%;
   }
   100% {
     left: 0%;

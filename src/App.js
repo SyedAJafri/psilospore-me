@@ -98,14 +98,35 @@ class SkillBox extends React.Component {
 
 }
 
-const SkillInfo = (props) => {
-  return (
-    <div className='box skill-info'>
-      <a className='skill-title'>{props.title}</a>
-      <h3>Where {props.location}</h3>
-      <p>{props.description}</p>
-    </div>
-  )
+class SkillInfo extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      slideLeft: true
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState){
+    if (prevProps !== this.props) { // Slide left if new props
+      this.setState({slideLeft: true});
+    }
+  }
+
+  render() {
+    let classes = 'box skill-info';
+    if (this.state.slideLeft) {
+      classes += ' slide-left';
+      // Remove class when complete so animation is triggered next time props are changed
+      setTimeout(() => this.setState({slideLeft: false}), 200);
+    }
+    return (
+      <div className={classes}>
+        <a className='skill-title'>{this.props.title}</a>
+        <h3>Where {this.props.location}</h3>
+        <p>{this.props.description}</p>
+      </div>
+    )
+  }
 }
 
 

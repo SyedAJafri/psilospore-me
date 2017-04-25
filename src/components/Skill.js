@@ -1,10 +1,8 @@
-import React, { Component } from 'react';
-import SKILLS_DATA from '../skills.js';
+import React from 'react';
+import SKILLS_DATA from '../skillsData.js';
+import '../css/SkillBox.css';
 
 class SkillBox extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     let skillBoxClasses = 'box skillbox';
     if (this.props.active) {
@@ -104,8 +102,8 @@ class Skills extends React.Component {
 const LanguagesPage = (props) => {
   return (
     <Skills
-      pageTitle = "Languages"
-      skillsType = "languages"
+      pageTitle="Languages"
+      skillsType="languages"
     ></Skills>
   )
 }
@@ -113,8 +111,8 @@ const LanguagesPage = (props) => {
 const ToolsPage = (props) => {
   return (
     <Skills
-      pageTitle = "Frameworks, Tools, and Libraries"
-      pageTitle = "tools"      
+      pageTitle="Frameworks, Tools, and Libraries"
+      skillsType="tools"      
     ></Skills>
   )
 }

@@ -7,7 +7,7 @@ import './css/App.css';
 import './css/SkillBox.css';
 
 import { Container, GridColumn, Grid, GridRow, Segment, Item, ItemHeader, Image, Header, Icon, Card, Dimmer, DimmerDimmable } from 'semantic-ui-react';
-import Skill from './components/Skill.js';
+import { LanguagesPage, ToolsPage } from './components/Skill.js';
 
 
 class IntroPage extends Component {
@@ -106,7 +106,10 @@ class App extends Component {
         currentPage = <IntroPage></IntroPage>;
         break;
       case 1:
-        currentPage = <Skill></Skill>
+        currentPage = <LanguagesPage></LanguagesPage>
+        break;
+      case 2:
+        currentPage = <ToolsPage></ToolsPage>
         break;
     }
 

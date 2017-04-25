@@ -39,7 +39,6 @@
 
 .skill-title {
   font-size: 1.7em;
-  display: inline;
   color: #0C374D;
   font-weight: 600;
 }
@@ -50,12 +49,14 @@
 
 .skill-info {
   position: relative;
+  display: block;
   border-radius: 0.3em;
   cursor: initial;
   font-size: 1em;
   margin-bottom: 0.2em;
   padding: 1em;
-  padding-top: 3em;  
+  padding-top: 3em;
+  width: 100%;
 }
 
 .slide-left {
@@ -66,7 +67,10 @@
   0% {
     left: 100%;
   }
+  95% {
+    left: 5%;
+  }
   100% {
-    left: 0%;
+    left: initial;
   }
 }

@@ -4,14 +4,16 @@ const SKILLS_DATA = {
             title: "Java",
             description: `I have been using Java for 4 years professionally.
             I have a good understanding of Object Orientated principles and have used
-            related technologies such as {tools#Spring Framework}, {tools#Hibernate}, Maven, and JavaFX
+            related technologies such as {tools#Spring Framework}, {tools#Hibernate}, Maven, and JavaFX.
+            More info under {jobs#ITG} {jobs#Alertus}
             `
         },
         {
             title: "Javascript",
             where: "{job#ITG} {job#Jibe} {job#Alertus}",            
             description: `
-
+            I have been using Javascript for a few years at {jobs#ITG}, {jobs#Jibe}, and for several side projects.
+            I have used JQuery, {tools#Angular 2+}, React
             `
         },
         {
@@ -27,7 +29,16 @@ const SKILLS_DATA = {
     tools: [
         {
             title: "Angular 2+",
-            description: "safasf"
+            description: `
+            I have used Angular 2 at ITG where I've been involved in several Single Page Apps. I'm involved
+            `
+        },
+        {
+            title: "git",
+            description: `
+            I have been using git for several years but have used it much more intensively 
+            at ITG where I was significantly involved in setting up our branching model, code review process, and bitbucket integration. I was a gatekeeper for our 2 largest repositories for our project, heavily commented on many pull requests, involved in release cycle merges, and I mentored a large number of coworkers on git.
+            `
         },
         {
             title: "React",
@@ -42,7 +53,8 @@ const SKILLS_DATA = {
         },
         {
             title: "Spring Framework",
-            description: "safasf"
+            description: `
+            `
         },
         {
             title: "Hibernate",

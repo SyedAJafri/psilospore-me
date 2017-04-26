@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-
+import '../css/Intro.css';
 import { Container, Header, Icon } from 'semantic-ui-react';
 
 class IntroPage extends Component {
   render() {
     return (
       <Container>
-        <Header>
+        <Header id='name-title-container'>
           <Header.Content as='h1'>
-            <Icon name='plug' fitted></Icon>
-            <a id='nametitle'>Syed A Jafri</a>
+            <a id='name-title'>Syed A Jafri</a>
             <Header.Subheader id='alias'>
               @psilospore
             </Header.Subheader>

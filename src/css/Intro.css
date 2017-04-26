@@ -1,0 +1,19 @@
+#name-title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10em;
+}
+
+#name-title {
+    color: darkgoldenrod;
+    font-size: 3em;
+}
+
+#alias {
+    padding-top: .25em;
+    font-size: 1em;
+    font-kerning: .3em;
+    color: lightskyblue;
+    text-align: center;
+}

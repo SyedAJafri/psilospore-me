@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../css/Intro.css';
 import { Container, Header, Icon } from 'semantic-ui-react';
 
-class IntroPage extends Component {
+class IntroPage extends React.Component {
   render() {
     return (
       <Container>
@@ -11,6 +11,9 @@ class IntroPage extends Component {
             <a id='name-title'>Syed A Jafri</a>
             <Header.Subheader id='alias'>
               @psilospore
+            </Header.Subheader>
+            <Header.Subheader id='my-description'>
+              Fullstack developer that has a passion for slinging 100% organic artisian gluten-free code
             </Header.Subheader>
           </Header.Content>
         </Header>

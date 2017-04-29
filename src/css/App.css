@@ -24,6 +24,23 @@ body {
   text-align: center;
 }
 
+.ui.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+#footer-contents {
+  text-align: center;
+}
+
+#navigation-footer-helper {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transition: opacity ease-in-out 200ms infinite;
+}
+
 .ui.sidebar {
   position: absolute;
   right: 0;
@@ -33,6 +50,10 @@ body {
 
 .navigation {
   text-align: center;
+}
+
+.no-wrap {
+    white-space: nowrap;
 }
 
 #alias {

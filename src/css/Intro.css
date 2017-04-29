@@ -3,10 +3,11 @@
   align-items: center;
   justify-content: center;
   padding: 10em;
+  text-align: center;
 }
 
 #name-title {
-    color: darkgoldenrod;
+    color: orange;
     font-size: 3em;
 }
 
@@ -14,6 +15,10 @@
     padding-top: .25em;
     font-size: 1em;
     font-kerning: .3em;
-    color: lightskyblue;
-    text-align: center;
+    color: lightgoldenrodyellow;
+}
+
+#my-description {
+    color: whitesmoke;
+    font-size: .9em;
 }

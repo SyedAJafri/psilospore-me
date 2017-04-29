@@ -1,22 +1,24 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../semantic/dist/semantic.min.css';
 
 import './css/Index.css';
 import './css/App.css';
 
 import { LanguagesPage, ToolsPage } from './components/Skill.js';
+import JobsPage from './components/Jobs.js';
 import IntroPage from './components/Intro.js';
 import Footer from './components/Footer.js';
 import Navigation from './components/Navigation.js';
 
-class App extends Component {
+class App extends React.Component {
 
-  NUMBER_OF_PAGES = 2;
+  NUMBER_OF_PAGES = 3;
 
   constructor(props) {
     super(props);
     this.state = {
-      pageNum: 0
+      pageNum: 0,
+      firstTime: true
     };
   };
 
@@ -57,9 +59,12 @@ class App extends Component {
         currentPage = <IntroPage></IntroPage>;
         break;
       case 1:
-        currentPage = <LanguagesPage></LanguagesPage>
+        currentPage = <JobsPage></JobsPage>
         break;
       case 2:
+        currentPage = <LanguagesPage></LanguagesPage>
+        break;
+      case 3:
         currentPage = <ToolsPage></ToolsPage>
         break;
       default:

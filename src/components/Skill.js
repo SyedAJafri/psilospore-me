@@ -1,6 +1,7 @@
 import React from 'react';
-import SKILLS_DATA from '../skillsData.js';
+import SKILLS_DATA from '../data/skills.js';
 import '../css/SkillBox.css';
+import PageTitle from './common/PageTitle.js';
 
 class SkillBox extends React.Component {
   render() {
@@ -42,6 +43,7 @@ class SkillInfo extends React.Component {
     return (
       <div className={classes}>
         <a className='skill-title'>{this.props.title}</a>
+        <div className='skill-info-line'></div>
         <p>{this.props.description}</p>
       </div>
     )
@@ -88,7 +90,9 @@ class Skills extends React.Component {
           />: <div></div>;
     return (
       <div>
-        <h1 className='page-title'>{this.props.pageTitle}</h1>
+        <PageTitle
+          title={this.props.pageTitle}
+        />
         <div className='container'>
         {selectedSkillInfo}
         {skills}

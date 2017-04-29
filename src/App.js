@@ -48,6 +48,12 @@ class App extends React.Component {
       } else {
         //TODO wiggle animation
       }
+    } else if (!isNaN(event.key)) {
+      const numEntered = Number.parseInt(event.key);
+      if (1 <= numEntered && numEntered <= this.NUMBER_OF_PAGES + 1) {
+        this.setState({pageNum: numEntered - 1});
+        this.setState({firstTime: false});        
+      }
     }
   }
   

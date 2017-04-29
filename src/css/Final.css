@@ -1,0 +1,19 @@
+.footer-transition {
+  top: 0%;
+  animation: slide-up 600ms
+}
+
+@keyframes slide-up {
+  0% {
+    top: initial
+  }
+  5% {
+    top: 80%
+  }
+  75% {
+    top: 20%
+  }
+  100% {
+    top: 0%
+  }
+}

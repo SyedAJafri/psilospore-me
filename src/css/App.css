@@ -17,17 +17,11 @@ body {
 }
 
 
-.ui.footer {
+#footer {
   position: absolute;
   bottom: 0;
   width: 100%;
   text-align: center;
-}
-
-.ui.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
 }
 
 #footer-contents {

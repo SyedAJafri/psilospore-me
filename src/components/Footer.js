@@ -3,7 +3,7 @@ import { Segment, Header, Icon } from 'semantic-ui-react';
 
 const Footer = (props) => {
   return (
-      <Segment inverted vertical className='footer'>
+      <Segment inverted vertical id='footer' className={[{"footer-transition": props.finalPage}]}>
         { props.showHelper &&
           <Segment basic id='navigation-footer-helper'>
             <a style={{paddingRight:'5px', color: 'white'}}>Arrow left or right</a>
@@ -15,9 +15,20 @@ const Footer = (props) => {
           <Icon link circular name='stack overflow'></Icon>
           <Icon link circular name='linkedin'></Icon>
           <Icon link circular name='twitter'></Icon>
-          <Header.Subheader as='h4' >
-            Built with React JS
-          </Header.Subheader>
+          {
+            props.finalPage &&
+            <div>
+              <Header.Subheader as='h2' >
+                Thanks for checking me out! Check out my social links above 👆 or email me at <a href="mailto:syedjafri99.psilosporeme@gmail.com?Subject=Hey%20Dude">syedjafri99@gmail.com</a>
+              </Header.Subheader>
+              <Header.Subheader as='h4' >
+                Built with React JS
+              </Header.Subheader>
+            </div>
+
+          }
+
+          
         </div>
 
       </Segment>

@@ -7,12 +7,13 @@ import './css/App.css';
 import { LanguagesPage, ToolsPage } from './components/Skill.js';
 import JobsPage from './components/Jobs.js';
 import IntroPage from './components/Intro.js';
+import FinalPage from './components/Final.js';
 import Footer from './components/Footer.js';
 import Navigation from './components/Navigation.js';
 
 class App extends React.Component {
 
-  NUMBER_OF_PAGES = 3;
+  NUMBER_OF_PAGES = 4;
 
   constructor(props) {
     super(props);
@@ -73,6 +74,9 @@ class App extends React.Component {
       case 3:
         currentPage = <ToolsPage></ToolsPage>
         break;
+      case 4:
+        currentPage = <FinalPage></FinalPage>
+        break;
       default:
         throw new Error('Invalid page number');
     }
@@ -86,6 +90,7 @@ class App extends React.Component {
         {currentPage}
         <Footer
           showHelper={this.state.firstTime}
+          finalPage={this.state.pageNum === this.NUMBER_OF_PAGES}
         ></Footer>
       </div>
     );

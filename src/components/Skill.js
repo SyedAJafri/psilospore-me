@@ -1,16 +1,22 @@
 import React from 'react';
+import classNames from 'classnames';
+import PageTitle from './common/PageTitle.js';
+
 import SKILLS_DATA from '../data/skills.js';
 import '../css/SkillBox.css';
-import PageTitle from './common/PageTitle.js';
+
 
 class SkillBox extends React.Component {
   render() {
-    let skillBoxClasses = 'box skillbox';
-    if (this.props.active) {
-      skillBoxClasses += ' selected-skillbox';
-    }
+
+    let skillBoxStyles = classNames({
+      'box': true,
+      'skillbox': true,
+      'selected-skillbox': this.props.active
+    });
+
     return (
-      <div className={skillBoxClasses} onClick={this.props.onClick}>
+      <div className={skillBoxStyles} onClick={this.props.onClick}>
         <div className='circle'></div>
         <a className='skill-title'>{this.props.title}</a>
       </div>
@@ -43,7 +49,7 @@ class SkillInfo extends React.Component {
     return (
       <div className={classes}>
         <a className='skill-title'>{this.props.title}</a>
-        <div className='skill-info-line'></div>
+        <hr/>
         <p>{this.props.description}</p>
       </div>
     )

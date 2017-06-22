@@ -10,7 +10,7 @@ class Job extends React.Component {
     return (
       <Card className='job-box' raised={true} description={this.props.description} centered={true} fluid={true}>
         <Card.Content>
-          <Image floated='right' size='mini' src={this.props.icon}/>
+          <Image size='tiny' floated='right' src={this.props.icon} className='job-logo'/>
           <Card.Header className='no-wrap'>
             {this.props.companyName}
           </Card.Header>
@@ -41,7 +41,7 @@ class JobsPage extends React.Component {
     return (
       <div>
         <PageTitle title="Jobs"/>
-        <Card.Group id='job-container' stackable={true}>
+        <Card.Group id='job-container'>
           {jobs}
         </Card.Group>
       </div>

@@ -7,8 +7,7 @@ const JOBS_DATA = [{
 		date: 'April 2016 to current',
 		icon: itgIcon,
 		jobDescription: `
-        TODO
-        Developed browser automated tests for our continuous integration solution. The system would simulate an applicant applying for a job while using various functions on our client’s sites reporting any bugs to JIRA. Also maintained an older automated testing solution for our previous product.
+		Developed browser automated tests for our continuous integration solution. The system would simulate an applicant applying for a job while using various functions on our client’s sites reporting any bugs to JIRA. Also maintained an older automated testing solution for our previous product.
         `
 	},
 	{

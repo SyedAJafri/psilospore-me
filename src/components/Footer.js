@@ -1,9 +1,15 @@
 import React from 'react';
 import { Segment, Header, Icon } from 'semantic-ui-react';
+import classNames from 'classnames';
 
 const Footer = (props) => {
+
+  let footerStyles = classNames({
+    "footer-transition": props.finalPage,
+  });
+
   return (
-      <Segment inverted vertical id='footer' className={[{"footer-transition": props.finalPage}]}>
+      <Segment inverted vertical id='footer' className={footerStyles}>
         { props.showHelper &&
           <Segment basic id='navigation-footer-helper'>
             <a style={{paddingRight:'5px', color: 'white'}}>Arrow left or right</a>
@@ -20,6 +26,9 @@ const Footer = (props) => {
             <div>
               <Header.Subheader as='h2' >
                 Thanks for checking me out! Check out my social links above 👆 or email me at <a href="mailto:syedjafri99.psilosporeme@gmail.com?Subject=Hey%20Dude">syedjafri99@gmail.com</a>
+              </Header.Subheader>
+                <Header.Subheader as='h3' >
+                  <a href="dropboxLinkTODO">Download my résumé 📝</a>
               </Header.Subheader>
               <Header.Subheader as='h4' >
                 Built with React JS

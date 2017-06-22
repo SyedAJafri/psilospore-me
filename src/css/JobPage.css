@@ -1,4 +1,17 @@
 #job-container {
-    margin-left: 4em;
-    margin-right: 4em;    
+    margin-left: 2em;
+    margin-right: 2em;
+    text-align: center;
+}
+
+#job-container .content {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#job-container .description {
+    margin: 0 auto;
+    position: relative;
+    text-align: left;
 }

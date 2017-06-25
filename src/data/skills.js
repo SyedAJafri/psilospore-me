@@ -4,13 +4,12 @@ const SKILLS_DATA = {
             title: "Java",
             description: `I have been using Java for 4 years professionally.
             I have a good understanding of Object Orientated principles and have used
-            related technologies such as {tools#Spring Framework}, {tools#Hibernate}, Maven, and JavaFX.
-            More info under {jobs#ITG} {jobs#Alertus}
+            related technologies such as Spring Framework, Hibernate, Maven, and JavaFX.
             `
         },
         {
             title: "Javascript",
-            where: "{job#ITG} {job#Jibe} {job#Alertus}",            
+            where: "ITG, Jibe, Alertus",            
             description: `
             I have been using Javascript for a few years at {jobs#ITG}, {jobs#Jibe}, and for several side projects.
             I have used JQuery, {tools#Angular 2+}, React
@@ -43,13 +42,11 @@ const SKILLS_DATA = {
         {
             title: "React",
             description: `
-            I'm learning React on my free time. Currently this site is built in React and
-            I'm building a larger side project in React with a few friends soon.
+            I'm learning React on my free time. Currently this site is built in React and I'm working on a foodtruck project as well
             `
         },
         {
             title: "HTML & CSS",
-            description: "safasf"
         },
         {
             title: "Spring Framework",

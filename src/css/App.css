@@ -32,7 +32,7 @@ body {
   position: absolute;
   bottom: 0;
   right: 0;
-  transition: opacity ease-in-out 200ms infinite;
+  animation: flash-slow 4s ease-out infinite;
 }
 
 .ui.sidebar {
@@ -54,3 +54,9 @@ body {
   color: #5E1785;
 }
 
+
+@keyframes flash-slow {
+  50% {
+    opacity: .2;    
+  }
+}

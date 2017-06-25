@@ -17,10 +17,10 @@ const Footer = (props) => {
         </Segment>
         }
         <div id='footer-contents'>
-          <Icon link circular name='github'></Icon>
-          <Icon link circular name='stack overflow'></Icon>
-          <Icon link circular name='linkedin'></Icon>
-          <Icon link circular name='twitter'></Icon>
+          <a target="_blank" href="https://github.com/psilospore"><Icon link circular name='github'></Icon></a>
+          <a target="_blank" href="https://stackoverflow.com/users/2205365/syed-jafri"><Icon link circular name='stack overflow'></Icon></a>
+          <a target="_blank" href="https://www.linkedin.com/in/syedajafri"><Icon link circular name='linkedin'></Icon></a>
+          <a target="_blank" href="https://codepen.io/psilospore"><Icon link circular name='code'></Icon></a>
           {
             props.finalPage &&
             <div>

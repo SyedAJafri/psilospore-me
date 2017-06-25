@@ -3,7 +3,7 @@ import { Icon } from 'semantic-ui-react';
 
 function Navigation(props) {
   let loadingIcons = [];
-  for (let i = 0; i <= props.NUMBER_OF_PAGES; i++) {
+  for (let i = 0; i <= props.PAGE_MAX_INDEX; i++) {
     if (i === props.pageNum) {
       loadingIcons.push(<Icon key={i} name='thin circle' ></Icon>);
     } else {

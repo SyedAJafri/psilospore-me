@@ -5,7 +5,7 @@ import './css/Index.css';
 import './css/App.css';
 
 import { LanguagesPage, ToolsPage } from './components/Skill.js';
-import JobsPage from './components/Jobs.js';
+import { JobsPage, EducationPage } from './components/Experience.js';
 import IntroPage from './components/Intro.js';
 import FinalPage from './components/Final.js';
 import Footer from './components/Footer.js';
@@ -13,7 +13,7 @@ import Navigation from './components/Navigation.js';
 
 class App extends React.Component {
 
-  NUMBER_OF_PAGES = 4;
+  PAGE_MAX_INDEX = 5;
 
   constructor(props) {
     super(props);
@@ -43,7 +43,7 @@ class App extends React.Component {
         //TODO wiggle animation
       }
     } else if (event.key === 'ArrowRight') {
-      if (this.state.pageNum < this.NUMBER_OF_PAGES) {
+      if (this.state.pageNum < this.PAGE_MAX_INDEX) {
         this.setState({pageNum: this.state.pageNum + 1});
         this.setState({firstTime: false});        
       } else {
@@ -51,7 +51,7 @@ class App extends React.Component {
       }
     } else if (!isNaN(event.key)) {
       const numEntered = Number.parseInt(event.key);
-      if (1 <= numEntered && numEntered <= this.NUMBER_OF_PAGES + 1) {
+      if (1 <= numEntered && numEntered <= this.PAGE_MAX_INDEX + 1) {
         this.setState({pageNum: numEntered - 1});
         this.setState({firstTime: false});        
       }
@@ -66,15 +66,18 @@ class App extends React.Component {
         currentPage = <IntroPage></IntroPage>;
         break;
       case 1:
-        currentPage = <JobsPage></JobsPage>
+        currentPage = <EducationPage></EducationPage>
         break;
       case 2:
-        currentPage = <LanguagesPage></LanguagesPage>
+        currentPage = <JobsPage></JobsPage>
         break;
       case 3:
-        currentPage = <ToolsPage></ToolsPage>
+        currentPage = <LanguagesPage></LanguagesPage>
         break;
       case 4:
+        currentPage = <ToolsPage></ToolsPage>
+        break;
+      case 5:
         currentPage = <FinalPage></FinalPage>
         break;
       default:
@@ -85,12 +88,12 @@ class App extends React.Component {
       <div className="App">
         <Navigation
           pageNum={this.state.pageNum}
-          NUMBER_OF_PAGES={this.NUMBER_OF_PAGES}
+          PAGE_MAX_INDEX={this.PAGE_MAX_INDEX}
         ></Navigation>
         {currentPage}
         <Footer
           showHelper={this.state.firstTime}
-          finalPage={this.state.pageNum === this.NUMBER_OF_PAGES}
+          finalPage={this.state.pageNum === this.PAGE_MAX_INDEX}
         ></Footer>
       </div>
     );

@@ -13,19 +13,19 @@ class ExperienceBox extends React.Component {
         <Card.Content>
           {this.props.icon?
             <Image size='tiny' floated='right' src={this.props.icon} className='job-logo'/>: <div></div>}
-          <div>
-          <Card.Header className='no-wrap'>
-            {this.props.header}
-          </Card.Header>
-          <Card.Meta className='no-wrap'>
-            <bold>{this.props.subheader}</bold>
-          </Card.Meta>
-          <Card.Meta className='no-wrap'>
-            {this.props.date}
-          </Card.Meta>
-          {this.props.description? <Card.Description>
-            {this.props.description}
-          </Card.Description> : <div></div>}
+          <div className='experience-content'>
+            <Card.Header className='no-wrap'>
+              {this.props.header}
+            </Card.Header>
+            <Card.Meta className='no-wrap'>
+              <bold>{this.props.subheader}</bold>
+            </Card.Meta>
+            <Card.Meta className='no-wrap'>
+              {this.props.date}
+            </Card.Meta>
+            {this.props.description? <Card.Description>
+              {this.props.description}
+            </Card.Description> : <div></div>}
           </div>
         </Card.Content>
       </Card>

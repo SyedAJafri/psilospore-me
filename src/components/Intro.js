@@ -13,7 +13,7 @@ class IntroPage extends React.Component {
               @psilospore
             </Header.Subheader>
             <Header.Subheader id='my-description'>
-              Fullstack developer that has a passion for slinging 100% organic gluten-free artisian code
+              Fullstack developer that enjoys facing challenging problems
             </Header.Subheader>
           </Header.Content>
         </Header>

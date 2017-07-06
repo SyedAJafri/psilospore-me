@@ -28,7 +28,7 @@ const Footer = (props) => {
                 Thanks for checking me out! Check out my social links above 👆 or email me at <a href="mailto:syedjafri99.psilosporeme@gmail.com?Subject=Hey%20Dude">syedjafri99@gmail.com</a>
               </Header.Subheader>
                 <Header.Subheader as='h3' >
-                  <a target="_blank" href="https://www.dropbox.com/s/vw2hdde1ztnpabg/Jafri_Syed_Resume.pdf?dl=0">Download my résumé 📝</a>
+                  <a target="_blank" href="https://www.dropbox.com/s/vw2hdde1ztnpabg/Jafri_Syed_Resume.pdf?dl=0">Look my résumé 📝</a>
               </Header.Subheader>
               <Header.Subheader as='h4' >
                 Built with React JS

@@ -28,13 +28,6 @@ body {
   text-align: center;
 }
 
-#navigation-footer-helper {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  animation: flash-slow 4s ease-out infinite;
-}
-
 .ui.sidebar {
   position: absolute;
   right: 0;
@@ -52,11 +45,4 @@ body {
 
 #alias {
   color: #5E1785;
-}
-
-
-@keyframes flash-slow {
-  50% {
-    opacity: .2;    
-  }
 }

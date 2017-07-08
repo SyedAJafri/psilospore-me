@@ -4,8 +4,10 @@
   "private": true,
   "dependencies": {
     "classnames": "^2.2.5",
+    "fullpage-react": "^3.0.4",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
+    "react-fullpage": "^0.1.18",
     "semantic-ui": "^2.2.9",
     "semantic-ui-css": "^2.2.9",
     "semantic-ui-react": "^0.67.0"

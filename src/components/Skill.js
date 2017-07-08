@@ -49,8 +49,9 @@ class SkillInfo extends React.Component {
     return (
       <div className={classes}>
         <a className='skill-title'>{this.props.title}</a>
-        <hr/>
-        <p>{this.props.description}</p>
+        { this.props.description ? 
+          <div> <hr/> <p>{this.props.description}</p> </div> : <div></div>
+        }
       </div>
     )
   }
@@ -91,7 +92,6 @@ class Skills extends React.Component {
     let selectedSkill = SKILLS_DATA[this.props.skillsType][this.state.active];
     let selectedSkillInfo = selectedSkill ?
         <SkillInfo
-          description=''
           {...selectedSkill}
           />: <div></div>;
     return (

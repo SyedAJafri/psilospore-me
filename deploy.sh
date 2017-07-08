@@ -1,1 +1,4 @@
-npm run build && git subtree push --prefix build origin gh-pages
+npm run build
+git add build
+git commit -m "pushing build files"
+git subtree push --prefix build origin gh-pages

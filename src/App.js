@@ -47,11 +47,6 @@ class App extends React.Component {
                   <Section><ToolsPage></ToolsPage></Section>
                   <Section><PsilosporeFooter></PsilosporeFooter></Section>
                 </SectionsContainer>
-
-                <div className="btnGroup">
-                    <button onClick={() => this.setState({current: current - 1})} disabled={current === 0}>pre</button>
-                    <button onClick={() => this.setState({current: current + 1})} disabled={current === 5}>next</button>
-                </div>
             </div>
         )
     }
